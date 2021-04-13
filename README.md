@@ -1,2 +1,2 @@
-# rest-handler
-Handlers for RESTful service
+# rest-db
+Working with a database
