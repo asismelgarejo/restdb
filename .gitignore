@@ -17,3 +17,6 @@
 # For macOS
 .DS_Store
 
+# For not including PostgreSQL data
+postgres/*
+
