@@ -26,7 +26,7 @@ var (
 	Database = "restapi"
 )
 
-func connectPostgres() *sql.DB {
+func ConnectPostgres() *sql.DB {
 	conn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", Hostname, Port, Username, Password, Database)
 
 	db, err := sql.Open("postgres", conn)
@@ -39,7 +39,7 @@ func connectPostgres() *sql.DB {
 }
 
 func AdminPass() error {
-	db := connectPostgres()
+	db := ConnectPostgres()
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 	}
@@ -50,7 +50,7 @@ func AdminPass() error {
 
 // DeleteUser is for deleting a user defined by ID
 func DeleteUser(ID int) bool {
-	db := connectPostgres()
+	db := ConnectPostgres()
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
@@ -75,7 +75,7 @@ func DeleteUser(ID int) bool {
 
 // ReturnAllUsers is for returning all users from the database table
 func ReturnAllUsers() []User {
-	db := connectPostgres()
+	db := ConnectPostgres()
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
@@ -107,7 +107,7 @@ func ReturnAllUsers() []User {
 
 // FindUserID is for returning a user record defined by ID
 func FindUserID(ID int) User {
-	db := connectPostgres()
+	db := ConnectPostgres()
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
@@ -142,7 +142,7 @@ func FindUserID(ID int) User {
 
 // FindUserUsername is for returning a user record defined by username
 func FindUserUsername(username string) User {
-	db := connectPostgres()
+	db := ConnectPostgres()
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
@@ -177,7 +177,7 @@ func FindUserUsername(username string) User {
 
 // ReturnLoggedUsers is for returning all logged in users
 func ReturnLoggedUsers() []User {
-	db := connectPostgres()
+	db := ConnectPostgres()
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
@@ -221,7 +221,7 @@ func IsUserAdmin(u UserPass) bool {
 		return false
 	}
 
-	db := connectPostgres()
+	db := ConnectPostgres()
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
@@ -265,7 +265,7 @@ func IsUserValid(u UserPass) bool {
 		return false
 	}
 
-	db := connectPostgres()
+	db := ConnectPostgres()
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
