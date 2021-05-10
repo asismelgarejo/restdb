@@ -279,11 +279,6 @@ func IsUserAdmin(u User) bool {
 }
 
 func IsUserValid(u User) bool {
-	if err != nil {
-		log.Println("IsUserValid - Validate:", err)
-		return false
-	}
-
 	db := ConnectPostgres()
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
