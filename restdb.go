@@ -240,13 +240,7 @@ func ReturnLoggedUsers() []User {
 
 // IsUserAdmin determines whether a user is
 // an administrator or not
-func IsUserAdmin(u UserPass) bool {
-	err := u.Validate()
-	if err != nil {
-		log.Println("IsUserAdmin - Validate:", err)
-		return false
-	}
-
+func IsUserAdmin(u User) bool {
 	db := ConnectPostgres()
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
@@ -284,7 +278,7 @@ func IsUserAdmin(u UserPass) bool {
 	return false
 }
 
-func IsUserValid(u UserPass) bool {
+func IsUserValid(u User) bool {
 	err := u.Validate()
 	if err != nil {
 		log.Println("IsUserValid - Validate:", err)
@@ -326,10 +320,4 @@ func IsUserValid(u UserPass) bool {
 		return true
 	}
 	return false
-}
-
-// Validate method validates the data of UserPass
-func (p *UserPass) Validate() error {
-	validate := validator.New()
-	return validate.Struct(p)
 }
