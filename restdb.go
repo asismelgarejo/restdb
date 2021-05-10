@@ -279,7 +279,6 @@ func IsUserAdmin(u User) bool {
 }
 
 func IsUserValid(u User) bool {
-	err := u.Validate()
 	if err != nil {
 		log.Println("IsUserValid - Validate:", err)
 		return false
