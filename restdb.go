@@ -23,7 +23,7 @@ type User struct {
 
 // PostgreSQL Connection details
 var (
-	Hostname = "postgres"
+	Hostname = "localhost"
 	Port     = 5432
 	Username = "mtsouk"
 	Password = "pass"
