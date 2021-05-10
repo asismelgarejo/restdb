@@ -73,14 +73,14 @@ func ListAllUsers() []User {
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
-		return nil
+		return []User{}
 	}
 	defer db.Close()
 
 	rows, err := db.Query("SELECT * FROM users \n")
 	if err != nil {
 		log.Println(err)
-		return nil
+		return []User{}
 	}
 
 	all := []User{}
@@ -105,14 +105,14 @@ func ListLogged() []User {
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
-		return nil
+		return []User{}
 	}
 	defer db.Close()
 
 	rows, err := db.Query("SELECT * FROM users WHERE active = 1\n")
 	if err != nil {
 		log.Println(err)
-		return nil
+		return []User{}
 	}
 
 	all := []User{}
@@ -207,14 +207,14 @@ func ReturnLoggedUsers() []User {
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
-		return nil
+		return []User{}
 	}
 	defer db.Close()
 
 	rows, err := db.Query("SELECT * FROM users WHERE Active = 1 \n")
 	if err != nil {
 		log.Println(err)
-		return nil
+		return []User{}
 	}
 
 	all := []User{}
