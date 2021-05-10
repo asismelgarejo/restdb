@@ -13,3 +13,5 @@ admin INT,
 lastlogin INT,
 active INT
 );
+
+INSERT INTO users (username, password, admin, active) VALUES ('admin', 'admin', 1, 1);

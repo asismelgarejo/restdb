@@ -1,5 +1,9 @@
 package restdb
 
+// Database: PostgreSQL
+//
+// Functions to support the interaction with the database
+
 import (
 	"database/sql"
 	"fmt"
@@ -36,16 +40,6 @@ func ConnectPostgres() *sql.DB {
 	}
 
 	return db
-}
-
-func AdminPass() error {
-	db := ConnectPostgres()
-	if db == nil {
-		fmt.Println("Cannot connect to PostgreSQL!")
-	}
-	defer db.Close()
-
-	return nil
 }
 
 // DeleteUser is for deleting a user defined by ID
