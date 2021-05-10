@@ -73,7 +73,7 @@ func ListAllUsers() []User {
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
-		return false
+		return nil
 	}
 	defer db.Close()
 
@@ -105,7 +105,7 @@ func ListLogged() []User {
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
-		return false
+		return nil
 	}
 	defer db.Close()
 
@@ -137,7 +137,7 @@ func FindUserID(ID int) User {
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
 		db.Close()
-		return false
+		return User{}
 	}
 	defer db.Close()
 
