@@ -10,7 +10,7 @@ id SERIAL PRIMARY KEY,
 username VARCHAR NOT NULL,
 password VARCHAR NOT NULL,
 admin INT,
-lastlogin INT,
+lastlogin INT64,
 active INT
 );
 
