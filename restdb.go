@@ -72,8 +72,7 @@ func InsertUser(u User) bool {
 	db := ConnectPostgres()
 	if db == nil {
 		fmt.Println("Cannot connect to PostgreSQL!")
-		db.Close()
-		return []User{}
+		return true
 	}
 	defer db.Close()
 
