@@ -67,6 +67,25 @@ func DeleteUser(ID int) bool {
 	return true
 }
 
+// InsertUser is for adding a new user to the database
+func InsertUser(u User) bool {
+	db := ConnectPostgres()
+	if db == nil {
+		fmt.Println("Cannot connect to PostgreSQL!")
+		db.Close()
+		return []User{}
+	}
+	defer db.Close()
+
+	stmt, err := db.Prepare("INSERT INTO users(Username, Password, LastLogin, Admin, Active) values(?,?,?,?,?)")
+	if err != nil {
+		log.Println("Adduser:", err)
+		return false
+	}
+	stmt.Exec(u.Username, u.Password, u.LastLogin, u.Admin, u.Active)
+	return true
+}
+
 // ListAllUsers is for returning all users from the database table
 func ListAllUsers() []User {
 	db := ConnectPostgres()
