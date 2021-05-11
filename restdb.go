@@ -55,7 +55,7 @@ func DeleteUser(ID int) bool {
 	// Check is the user ID exists
 	t := FindUserID(ID)
 	if t.ID == 0 {
-		log.Println("User ", ID, "does not exist.")
+		log.Println("User", ID, "does not exist.")
 		return false
 	}
 
