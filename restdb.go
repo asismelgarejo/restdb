@@ -197,7 +197,7 @@ func FindUserID(ID int) User {
 	return u
 }
 
-// FindUserUsername is for returning a user record defined by username
+// FindUserUsername is for returning a user record defined by a username
 func FindUserUsername(username string) User {
 	db := ConnectPostgres()
 	if db == nil {
