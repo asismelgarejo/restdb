@@ -76,7 +76,7 @@ func InsertUser(u User) bool {
 	}
 	defer db.Close()
 
-	if IsUserValid(u.Username) {
+	if IsUserValid(u) {
 		log.Println("User", u.Username, "already exists!")
 		return false
 	}
