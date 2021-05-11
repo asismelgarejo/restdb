@@ -52,6 +52,7 @@ func DeleteUser(ID int) bool {
 	}
 	defer db.Close()
 
+	// Check is the user ID exists
 	t := FindUserID(ID)
 	if t.ID == 0 {
 		log.Println("User does not exist.")
