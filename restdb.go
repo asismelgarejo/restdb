@@ -46,7 +46,7 @@ func ConnectPostgres() *sql.DB {
 func DeleteUser(ID int) bool {
 	db := ConnectPostgres()
 	if db == nil {
-		fmt.Println("Cannot connect to PostgreSQL!")
+		log.Println("Cannot connect to PostgreSQL!")
 		db.Close()
 		return false
 	}
