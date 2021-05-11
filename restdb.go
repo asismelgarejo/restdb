@@ -81,6 +81,7 @@ func InsertUser(u User) bool {
 		log.Println("Adduser:", err)
 		return false
 	}
+
 	stmt.Exec(u.Username, u.Password, u.LastLogin, u.Admin, u.Active)
 	return true
 }
