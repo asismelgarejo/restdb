@@ -20,6 +20,3 @@
 # For not including PostgreSQL data
 postgres/*
 
-go.mod
-go.sum
-
