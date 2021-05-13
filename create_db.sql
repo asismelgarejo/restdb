@@ -9,9 +9,9 @@ CREATE TABLE users (
 id SERIAL PRIMARY KEY,
 username VARCHAR NOT NULL,
 password VARCHAR NOT NULL,
-admin INT,
 lastlogin INT,
+admin INT,
 active INT
 );
 
-INSERT INTO users (username, password, admin, active) VALUES ('admin', 'admin', 1, 1);
+INSERT INTO users (username, password, lastlogin, admin, active) VALUES ('admin', 'admin', 1620922454, 1, 1);
