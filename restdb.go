@@ -22,6 +22,9 @@ type User struct {
 }
 
 // PostgreSQL Connection details
+//
+// We are using localhost as hostname because both
+// the utility and PostgreSQL run on the same machine
 var (
 	Hostname = "localhost"
 	Port     = 5432
@@ -31,7 +34,8 @@ var (
 )
 
 func ConnectPostgres() *sql.DB {
-	conn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", Hostname, Port, Username, Password, Database)
+	conn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+		Hostname, Port, Username, Password, Database)
 
 	db, err := sql.Open("postgres", conn)
 	if err != nil {
