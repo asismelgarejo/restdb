@@ -6,7 +6,9 @@ package restdb
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
+	"io"
 	"log"
 
 	_ "github.com/lib/pq"
@@ -19,6 +21,18 @@ type User struct {
 	LastLogin int64
 	Admin     int
 	Active    int
+}
+
+// FromJSON decodes a serialized JSON record - User{}
+func (p *User) FromJSON(r io.Reader) error {
+	e := json.NewDecoder(r)
+	return e.Decode(p)
+}
+
+// ToJSON encodes a User JSON record
+func (p *User) ToJSON(w io.Writer) error {
+	e := json.NewEncoder(w)
+	return e.Encode(p)
 }
 
 // PostgreSQL Connection details
