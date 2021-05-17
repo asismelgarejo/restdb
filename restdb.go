@@ -148,7 +148,9 @@ func ListAllUsers() []User {
 	return all
 }
 
-// ListLogged is for returning all users from the database table
+// ListLogged is for returning all logged users
+// This was created by mistake - the server uses
+// ReturnLoggedUsers() instead!
 func ListLogged() []User {
 	db := ConnectPostgres()
 	if db == nil {
