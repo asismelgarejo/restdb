@@ -1,5 +1,5 @@
-module github.com/asismelgarejo/mactsouk/restdb
+module github.com/asismelgarejo/restdb
 
-go 1.16
+go 1.17
 
-require github.com/lib/pq v1.10.1
+require github.com/lib/pq v1.10.4
