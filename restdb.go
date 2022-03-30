@@ -42,7 +42,7 @@ func (p *User) ToJSON(w io.Writer) error {
 var (
 	Hostname = "localhost"
 	Port     = 5432
-	Username = "asismelgarejo@gmail.com"
+	Username = "postgres"
 	Password = "password"
 	Database = "restapi"
 )
